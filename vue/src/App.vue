@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png"/>
     <router-view/>
   </div>
 </template>
@@ -22,9 +21,9 @@ export default {
   },
   methods: {
     onConnect: () => {
-      console.log('connection established!')
-      console.log({socket})
-      socket.emit('action', {message: 'doodoo'}, answer => {
+      console.log('connection established!', {socket})
+
+      socket.emit('action', {type: 'fetch', data: 'Listing'}, answer => {
         console.log('got reply', { answer })
       })
     }
